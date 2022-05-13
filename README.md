@@ -1,4 +1,4 @@
-Nearly empty Python3 project with a failing test!
+Completed Python3 project with a failing test!
 ===
 
 **DO NOT change the names of the function (get_cheapest_hotel) or of the file and folder it is in, changing it implies in disqualification.** 
