@@ -1,5 +1,8 @@
+import pickle
+
 class Hotel:
-   def __init__(self, name:str, precoSRegular:int, precoSReward:int, precoFSRegular:int, precoFSReward:int, classificacao:int):
+   def __init__(self, name:str, precoSRegular:int, precoSReward:int, 
+                precoFSRegular:int, precoFSReward:int, classificacao:int):
         self.name:str = name
         self.pg1:int = precoSRegular
         self.pw1:int = precoSReward
@@ -37,14 +40,14 @@ def get_cheapest_hotel(number):   #DO NOT change the function's name
     Brigde = Hotel("Bridgewood", 160, 110, 60, 50, 4)
     Ridge = Hotel("Ridgewood", 220, 100, 150, 40, 5)
     
-    split1 = number.split(':', 1)
-    type = split1[0]
+    split = number.split(':', 1)
+    type = split[0]
 
     stayL = stay(Lake,type)
     stayB = stay(Brigde,type)
     stayR = stay(Ridge,type)
     
-    dates = split1[1].split(',')
+    dates = split[1].split(',')
 
     for d in dates:
         day = d.split('(').pop(0).split(')')[0]
