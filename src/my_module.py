@@ -31,10 +31,8 @@ class stay:
     def get_price(self)->int:
         return self.__ptotal
 
-
-
-
 def get_cheapest_hotel(number):   #DO NOT change the function's name   
+
     Lake = Hotel("Lakewood", 110, 80, 90, 80, 3)
     Brigde = Hotel("Bridgewood", 160, 110, 60, 50, 4)
     Ridge = Hotel("Ridgewood", 220, 100, 150, 40, 5)
@@ -42,20 +40,18 @@ def get_cheapest_hotel(number):   #DO NOT change the function's name
     split1 = number.split(':', 1)
     type = split1[0]
 
-    split2 = split1.split(',', -1)
-    dates = split2.pop(0)
-
-    totalp = 0
-
     stayL = stay(Lake,type)
     stayB = stay(Brigde,type)
     stayR = stay(Ridge,type)
-        
+    
+    dates = split1[1].split(',')
+
     for d in dates:
         day = d.split('(').pop(0).split(')')[0]
         stayL.set_price(day)
         stayB.set_price(day)
         stayR.set_price(day)
 
-
-    
+    stays = [stayL,stayB,stayR]
+    stays.sort(key= lambda x: (x.get_price(), -x.hotel.stars))
+    return stays[0].hotel.name
